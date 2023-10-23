@@ -1,0 +1,30 @@
+vscode-extensions = [
+  # Managed in Nix Packages
+  "kubukoz.nickel-syntax",
+  "svelte.svelte-vscode",
+  "codezombiech.gitignore",
+  "llvm-org.lldb-vscode",
+  "svsool.markdown-memo",
+  "llvm-vs-code-extensions.vscode-clangd",
+  "tabnine.tabnine-vscode",
+  "coolbear.systemd-unit-file",
+  "lokalise.i18n-ally",
+  "takayama.vscode-qq",
+
+  # Market Place
+  "aaron-bond.better-comments",
+  "abusaidm.html-snippets",
+  "ahmadalli.vscode-nginx-conf",
+  "akamud.vscode-theme-onedark",
+  "akamud.vscode-theme-onelight",
+  "alefragnani.project-manager",
+  "arcanis.vscode-zipfs",
+  "arcticicestudio.nord-visual-studio-code",
+  "austenc.tailwind-docs",
+  "bmewburn.vscode-intelephense-client",
+  "bodil.file-browser",
+  "bradlc.vscode-tailwindcss",
+  "brpaz.file-templates",
+  "catppuccin.catppuccin-vsc-icons",
+  "christian-kohler.path-intellisense",
+]

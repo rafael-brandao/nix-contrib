@@ -1,0 +1,1 @@
+"I am a string in a valid nix file."
