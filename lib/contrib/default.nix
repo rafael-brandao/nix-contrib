@@ -27,7 +27,7 @@ let
 
       inherit (self.strings)
         isBlankString isEmptyString isNotBlankString isNotEmptyString
-        mkString splitMapFilter splitTrim spliTrimConcatLines trim;
+        mkString splitMapFilter splitTrim splitTrimConcatLines trim;
 
       inherit (self.sources)
         maybeImport;
