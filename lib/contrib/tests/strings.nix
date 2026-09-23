@@ -1,7 +1,5 @@
-{ strings }:
-
-with strings;
-{
+{strings}:
+with strings; {
   test_strings_isBlankString_01 = {
     expr = isBlankString "";
     expected = true;
@@ -24,20 +22,19 @@ with strings;
 
   test_strings_isBlankString_05 = {
     expr = isBlankString ''
-                    
-  																				   
-                              
-                              
-                              '';
+
+
+
+
+    '';
     expected = true;
   };
 
-
   test_strings_isBlankString_06 = {
     expr = isBlankString ''
-      								            
-      NOT BLANK            
-              				              
+
+      NOT BLANK
+
     '';
     expected = false;
   };
@@ -69,19 +66,19 @@ with strings;
 
   test_strings_isNotBlankString_05 = {
     expr = isNotBlankString ''
-      								
-                              
 
-                              
+
+
+
     '';
     expected = false;
   };
 
   test_strings_isNotBlankString_06 = {
     expr = isNotBlankString ''
-                  								
-      NOT BLANK           				 
-                              
+
+      NOT BLANK
+
     '';
     expected = true;
   };
@@ -92,17 +89,21 @@ with strings;
   };
 
   test_strings_mkString_01 = {
-    expr = mkString { } [ 1 2 3 4 5 ];
+    expr = mkString {} [1 2 3 4 5];
     expected = "12345";
   };
 
   test_strings_mkString_02 = {
-    expr = mkString { sep = ", "; } [ 1 2 3 4 5 ];
+    expr = mkString {sep = ", ";} [1 2 3 4 5];
     expected = "1, 2, 3, 4, 5";
   };
 
   test_strings_mkString_03 = {
-    expr = mkString { start = "{ "; sep = ", "; end = " }"; } [ 1 2 3 4 5 ];
+    expr = mkString {
+      start = "{ ";
+      sep = ", ";
+      end = " }";
+    } [1 2 3 4 5];
     expected = "{ 1, 2, 3, 4, 5 }";
   };
 
@@ -118,9 +119,9 @@ with strings;
 
   test_strings_trim_03 = {
     expr = trim ''
-                  								
-      NOT BLANK           				 
-                              
+
+      NOT BLANK
+
     '';
     expected = "NOT BLANK";
   };
@@ -147,11 +148,11 @@ with strings;
 
   test_strings_trim_08 = {
     expr = trim ''
-                  								
-      START           				 
-      MIDLE           				 
-                END           				 
-                              
+
+      START
+      MIDLE
+                END
+
     '';
 
     expected = ''
@@ -162,13 +163,13 @@ with strings;
 
   test_strings_splitTrim_01 = {
     expr = splitTrim "\n" ''
-      This 
-      is 
-      a 
-      multiline 
+      This
+      is
+      a
+      multiline
       string
     '';
-    expected = [ "This" "is" "a" "multiline" "string" ];
+    expected = ["This" "is" "a" "multiline" "string"];
   };
 
   test_strings_splitTrimConcatLines_01 = {

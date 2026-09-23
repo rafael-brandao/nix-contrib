@@ -1,7 +1,5 @@
-{ chars }:
-
-with chars;
-{
+{chars}:
+with chars; {
   test_chars_isChar_01 = {
     expr = isChar "4";
     expected = true;

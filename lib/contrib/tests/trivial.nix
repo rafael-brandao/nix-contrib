@@ -1,45 +1,42 @@
-{ trivial }:
-
-with trivial;
-{
-
+{trivial}:
+with trivial; {
   test_trivial_allMatch_01 = {
-    expr = allMatch [ builtins.isString isNullOrEmpty ] "test-string";
+    expr = allMatch [builtins.isString isNullOrEmpty] "test-string";
     expected = false;
   };
 
   test_trivial_allMatch_02 = {
-    expr = allMatch [ builtins.isString isNotNullOrEmpty ] "test-string";
+    expr = allMatch [builtins.isString isNotNullOrEmpty] "test-string";
     expected = true;
   };
 
   test_trivial_allMatch_03 = {
-    expr = allMatch [ builtins.isString isNotNullOrEmpty ] "";
+    expr = allMatch [builtins.isString isNotNullOrEmpty] "";
     expected = false;
   };
 
   test_trivial_anyMatch_01 = {
-    expr = anyMatch [ builtins.isString isNullOrEmpty ] "test-string";
+    expr = anyMatch [builtins.isString isNullOrEmpty] "test-string";
     expected = true;
   };
 
   test_trivial_anyMatch_02 = {
-    expr = anyMatch [ builtins.isString isNotNullOrEmpty ] "test-string";
+    expr = anyMatch [builtins.isString isNotNullOrEmpty] "test-string";
     expected = true;
   };
 
   test_trivial_anyMatch_03 = {
-    expr = anyMatch [ builtins.isString isNotNullOrEmpty ] "";
+    expr = anyMatch [builtins.isString isNotNullOrEmpty] "";
     expected = true;
   };
 
   test_trivial_isEmpty_01 = {
-    expr = isEmpty { f = "f"; };
+    expr = isEmpty {f = "f";};
     expected = false;
   };
 
   test_trivial_isEmpty_02 = {
-    expr = isEmpty [ ];
+    expr = isEmpty [];
     expected = true;
   };
 
@@ -50,21 +47,27 @@ with trivial;
 
   test_trivial_isEmpty_04 = {
     expr = builtins.tryEval (isEmpty null);
-    expected = { success = false; value = false; };
+    expected = {
+      success = false;
+      value = false;
+    };
   };
 
   test_trivial_isEmpty_05 = {
     expr = builtins.tryEval (isEmpty 6);
-    expected = { success = false; value = false; };
+    expected = {
+      success = false;
+      value = false;
+    };
   };
 
   test_trivial_isNotEmpty_01 = {
-    expr = isNotEmpty { f = "f"; };
+    expr = isNotEmpty {f = "f";};
     expected = true;
   };
 
   test_trivial_isNotEmpty_02 = {
-    expr = isNotEmpty [ ];
+    expr = isNotEmpty [];
     expected = false;
   };
 
@@ -75,21 +78,27 @@ with trivial;
 
   test_trivial_isNotEmpty_04 = {
     expr = builtins.tryEval (isNotEmpty null);
-    expected = { success = false; value = false; };
+    expected = {
+      success = false;
+      value = false;
+    };
   };
 
   test_trivial_isNotEmpty_05 = {
     expr = builtins.tryEval (isNotEmpty 6);
-    expected = { success = false; value = false; };
+    expected = {
+      success = false;
+      value = false;
+    };
   };
 
   test_trivial_isNullOrEmpty_01 = {
-    expr = isNullOrEmpty { f = "f"; };
+    expr = isNullOrEmpty {f = "f";};
     expected = false;
   };
 
   test_trivial_isNullOrEmpty_02 = {
-    expr = isNullOrEmpty [ ];
+    expr = isNullOrEmpty [];
     expected = true;
   };
 
@@ -105,16 +114,19 @@ with trivial;
 
   test_trivial_isNullOrEmpty_05 = {
     expr = builtins.tryEval (isNullOrEmpty 6);
-    expected = { success = false; value = false; };
+    expected = {
+      success = false;
+      value = false;
+    };
   };
 
   test_trivial_isNotNullOrEmpty_01 = {
-    expr = isNotNullOrEmpty { f = "f"; };
+    expr = isNotNullOrEmpty {f = "f";};
     expected = true;
   };
 
   test_trivial_isNotNullOrEmpty_02 = {
-    expr = isNotNullOrEmpty [ ];
+    expr = isNotNullOrEmpty [];
     expected = false;
   };
 
@@ -130,6 +142,9 @@ with trivial;
 
   test_trivial_isNotNullOrEmpty_05 = {
     expr = builtins.tryEval (isNotNullOrEmpty 6);
-    expected = { success = false; value = false; };
+    expected = {
+      success = false;
+      value = false;
+    };
   };
 }
