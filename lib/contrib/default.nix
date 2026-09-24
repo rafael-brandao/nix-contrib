@@ -14,6 +14,7 @@
     inherit
       (self.attrsets)
       indexAttrList
+      withMatching
       ;
 
     inherit
