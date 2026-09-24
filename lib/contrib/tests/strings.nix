@@ -6,7 +6,7 @@ with strings; {
   };
 
   test_strings_isBlank_String02 = {
-    expr = isBlankString "             				   ";
+    expr = isBlankString "             \t\t\t\t   ";
     expected = true;
   };
 
@@ -16,26 +16,17 @@ with strings; {
   };
 
   test_strings_isBlankString_04 = {
-    expr = isBlankString "  				   208   				    ";
+    expr = isBlankString "  \t\t\t\t   208   \t\t\t\t    ";
     expected = false;
   };
 
   test_strings_isBlankString_05 = {
-    expr = isBlankString ''
-
-
-
-
-    '';
+    expr = isBlankString "\n\n\n\n\n    ";
     expected = true;
   };
 
   test_strings_isBlankString_06 = {
-    expr = isBlankString ''
-
-      NOT BLANK
-
-    '';
+    expr = isBlankString "\n  NOT BLANK\n\n";
     expected = false;
   };
 
@@ -50,7 +41,7 @@ with strings; {
   };
 
   test_strings_isNotBlank_String02 = {
-    expr = isNotBlankString "   				     ";
+    expr = isNotBlankString "   \t\t\t\t     ";
     expected = false;
   };
 
@@ -60,26 +51,17 @@ with strings; {
   };
 
   test_strings_isNotBlankString_04 = {
-    expr = isNotBlankString "         208    				   ";
+    expr = isNotBlankString "         208    \t\t\t\t   ";
     expected = true;
   };
 
   test_strings_isNotBlankString_05 = {
-    expr = isNotBlankString ''
-
-
-
-
-    '';
+    expr = isNotBlankString "\n\n\n\n\n    ";
     expected = false;
   };
 
   test_strings_isNotBlankString_06 = {
-    expr = isNotBlankString ''
-
-      NOT BLANK
-
-    '';
+    expr = isNotBlankString "\n  NOT BLANK\n\n";
     expected = true;
   };
 
@@ -108,21 +90,17 @@ with strings; {
   };
 
   test_strings_trim_01 = {
-    expr = trim "   \n 			  \t   \r   TEST   \n   \t   \r  		";
+    expr = trim "   \n \t\t\t\t\t\t  \t   \r   TEST   \n   \t   \r  \t\t\t";
     expected = "TEST";
   };
 
   test_strings_trim_02 = {
-    expr = trim "   \n 			  \t   \r      \n   \t   \r  		";
+    expr = trim "   \n \t\t\t\t\t\t  \t   \r      \n   \t   \r  \t\t\t";
     expected = "";
   };
 
   test_strings_trim_03 = {
-    expr = trim ''
-
-      NOT BLANK
-
-    '';
+    expr = trim "\n  NOT BLANK\n\n";
     expected = "NOT BLANK";
   };
 
@@ -147,37 +125,18 @@ with strings; {
   };
 
   test_strings_trim_08 = {
-    expr = trim ''
+    expr = trim "\nSTART\t\t\t\t \nMIDLE\t\t\t\t \n          END\n";
 
-      START
-      MIDLE
-                END
-
-    '';
-
-    expected = ''
-      START           				 
-      MIDLE           				 
-                END'';
+    expected = "START\t\t\t\t \nMIDLE\t\t\t\t \n          END";
   };
 
   test_strings_splitTrim_01 = {
-    expr = splitTrim "\n" ''
-      This
-      is
-      a
-      multiline
-      string
-    '';
+    expr = splitTrim "\n" "This\nis\na\nmultiline\nstring";
     expected = ["This" "is" "a" "multiline" "string"];
   };
 
   test_strings_splitTrimConcatLines_01 = {
-    expr = splitTrimConcatLines ", " ''
-      -Xms100m
-      -Xmx1G
-      -XX:+UseParallelGC
-    '';
+    expr = splitTrimConcatLines ", " "-Xms100m\n-Xmx1G\n-XX:+UseParallelGC";
     expected = "-Xms100m, -Xmx1G, -XX:+UseParallelGC";
   };
 }
